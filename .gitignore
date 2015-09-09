@@ -1,0 +1,8 @@
+node_modules
+.tmp
+.sass-cache
+client/bower_components
+
+.DS_Store
+npm-debug.log
+/preview/preview.zip

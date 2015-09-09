@@ -1,0 +1,40 @@
+
+<div class="page page-profile" data-ng-controller="UserViewCtrl">
+
+    <div class="row">
+        <div class="col-md-6">
+
+            <div class="panel panel-profile">
+                <div class="panel-heading text-center bg-info">
+                    <img alt="" src="images/g1.png" class="img-circle img80_80">
+                    <h3>{{currentUser.userName}}</h3>
+                    <p>{{currentUser.title}}</p>
+                </div>
+
+                <div class="media">
+                    <div class="media-body">
+                        <ul class="list-unstyled list-info">
+                            <li>
+                                <span class="icon glyphicon glyphicon-eye-open"></span>
+                                <label>User Name</label>
+                                {{currentUser.userName}}
+                            </li>
+                            <li>
+                                <span class="icon glyphicon glyphicon-envelope"></span>
+                                <label>Email</label>
+                                {{currentUser.email}}
+                            </li>
+                        </ul>
+                        <a class="btn btn-primary" href="#/users/{{currentUser.id}}/edit"><span class="glyphicon glyphicon-plus-sign"></span> Edit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+
+
+        </div>
+    </div>
+
+
+</div>

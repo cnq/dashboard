@@ -1,0 +1,53 @@
+﻿<div class="page" data-ng-controller="ContentSelectCtrl">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default content-container">
+                <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> {{content.path}}</strong></div>
+                <div class="panel-body">
+                    <div class="content-attributes">
+                        <ul class="list-unstyled list-info list-attributes">
+                            <li>
+                                <img ng-show="content.contentType == 'image/jpeg' || content.contentType == 'image/png' || content.contentType == 'image/bmp' || content.contentType == 'image/x-icon'" src="/api/files/{{content.id}}">
+                                <div ng-show="content.contentType == 'application/x-zip-compressed'" class=" panel-icon">
+                                    <i class="fa fa-file-archive-o text-huge"></i>
+                                </div>
+                                <div ng-show="content.contentType == 'application/vnd.ms-excel'" class=" panel-icon">
+                                    <i class="fa fa-file-excel-o text-huge"></i>
+                                </div>
+                                <div ng-show="content.contentType == 'application/pdf'" class=" panel-icon">
+                                    <i class="fa fa-file-pdf-o text-huge"></i>
+                                </div>
+                                <div ng-show="content.contentType == 'audio/mpeg'" class=" panel-icon">
+                                    <i class="fa fa-file-sound-o text-huge"></i>
+                                </div>
+                                <div ng-show="content.contentType == 'application/msword' || content.contentType == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'" class=" panel-icon">
+                                    <i class="fa fa-file-word-o text-huge"></i>
+                                </div>
+                                <div ng-show="content.contentType == 'video/x-msvideo' || content.contentType == 'video/quicktime' || content.contentType == 'application/x-shockwave-flash'" class=" panel-icon">
+                                    <i class="fa fa-file-movie-o text-huge"></i>
+                                </div>
+                                <div ng-show="content.contentType == 'application/vnd.ms-powerpoint' || content.contentType == 'application/vnd.ms-powerpoint' || content.contentType == 'application/vnd.openxmlformats-officedocument.presentationml.presentation'" class=" panel-icon">
+                                    <i class="fa fa-file-powerpoint-o text-huge"></i>
+                                </div>
+                                <div ng-show="content.contentType == 'application/octet-stream'" class=" panel-icon">
+                                    <i class="fa fa-file-o text-huge"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="icon fa fa-circle-o-notch"></span>
+                                <label>Path</label>
+                                {{content.path}}
+                            </li>
+                            <li>
+                                <span class="icon fa fa-circle-o-notch"></span>
+                                <label>Content Type</label>
+                                {{content.contentType}}
+                            </li>
+                        </ul>
+                        <a class="btn btn-primary" ng-click="onSelectClick(content)">Select</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

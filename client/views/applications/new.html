@@ -1,0 +1,45 @@
+﻿<div class="page page-form" data-ng-controller="ApplicationNewCtrl">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> New Application</strong></div>
+                <div class="panel-body">
+                    <form name="form_constraints" class="form-validation" novalidate data-ng-submit="submitForm()">
+                        <div class="form-group">
+                            <label for="">Name </label>
+                            <input type="text"
+                                   class="form-control"
+                                   required
+                                   data-ng-minlength=3
+                                   data-ng-model="application.name">
+                            <span></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Public Endpoint On</label>
+                            <select class="form-control" data-ng-model="application.ipAddress">
+                                <option ng-repeat="item in endpoints" value="{{item.ipAddress}}">{{item.name}}</option>
+                            </select>
+
+                            <span></span>
+                        </div>
+                        <button type="submit"
+                                class="btn btn-success ladda-button"
+                                data-color="blue"
+                                data-style="zoom-in"
+                                ladda="loading"
+                                data-ng-disabled="!canSubmit()">
+                            <span class="ladda-label">Submit</span>
+                        </button>
+                        <button class="btn btn-default"
+                                data-ng-click="cancel()">
+                            Cancel
+                        </button>
+                        <div class="callout callout-info">
+                            <p>Submit button will be active only when all fields are valid.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

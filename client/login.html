@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>Integrated Development Platform in the Cloud | cnq.io</title>
+    <meta name="description" content="Simple &amp; Powerful Development Platform in the Cloud">
+    <meta name="author" content="Ceenq Software Solutions">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Head Styles -->
+    <!-- Google Webfonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,700,300,300italic,900|Orbitron:400,500,700,900">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/login.css">
+
+
+
+    <!--[if IE]>
+    <script src="/scripts/html5shiv.js"></script>
+    <script src="/scripts/respond.js"></script>
+    <![endif]-->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/ladda/dist/spin.min.js"></script>
+    <script src="bower_components/ladda/dist/ladda.min.js"></script>
+
+
+</head>
+<body id="section-login">
+
+    <header id="header" class="header-small header-internal">
+        <nav role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span data-icon="&#xf00b;" aria-hidden="true"></span>
+                    </button>
+                    <a href="http://www.cnq.io/" class="x-brand text" title="Cloud migration made simple">cnq.io</a>
+                </div>
+            </div><!-- /container -->
+        </nav>
+    </header>
+
+
+    <section id="section-login" class="pt-page pt-page-2 pd-72">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-lg-offset-3 col-sm-5">
+                    <div class="login-form">
+                        <form id="login-form" class="form form-horizontal" action="/admin.html" method="GET">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-7">
+                                        <h3>Sign In</h3>
+                                        <div class="left-inner-addon ">
+                                            <i class="fa fa-user"></i>
+                                            <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                                        </div>
+                                        <div class="left-inner-addon ">
+                                            <i class="fa fa-lock"></i>
+                                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                                        </div>
+                                        <input type="hidden" name="save" value="contact">
+                                        <div id="contact-error" class="text-right"></div>
+                                        <button class="btn btn-large btn-primary contact-submit pull-right ladda-button" type="submit" name="submit" data-style="expand-left" data-loading-text="<i class='icon-upload icon-white'></i>"><span class="ladda-label">SIGN IN</span></button>
+                                    </div>
+                                </div><!-- end form-group -->
+                            </div><!-- /row -->
+                        </form>
+                    </div><!-- /login-form -->
+                </div><!-- /col-md-7 -->
+            </div><!-- /row -->
+        </div><!-- end container -->
+    </section>
+    <!-- Footer Scripts -->
+    <script src="/scripts/login.js"></script>
+
+
+</body>
+</html>

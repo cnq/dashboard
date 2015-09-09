@@ -1,0 +1,33 @@
+﻿﻿<div class="page page-form" data-ng-controller="ContentUploadCtrl">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Add File</strong></div>
+                <div class="panel-body">
+                    <form name="form_constraints" class="form-validation" novalidate>
+                        <div class="form-group">
+                            <div>
+                                <input type="file" ng-file-select="onFileSelect($files)" multiple>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="drop-box-over"
+                                 ng-show="dropSupported" class="drop-box">Drag and drop files here</div>
+                            <div ng-file-drop-available="dropSupported=true"
+                                 ng-show="!dropSupported">HTML5 Drop File is not supported!</div>
+                        </div>
+                        <progressbar class="progress-striped active" value="uploadprogress" type="success" ng-show="uploadprogress > 0">Uploading ...</progressbar>
+                        <button class="btn btn-default"
+                                data-ng-click="cancel()">
+                            Back
+                        </button>
+                        <div class="callout callout-info">
+                            <p>Files will be automatically updated.</p>
+                            <p>Zip files will be unpacked.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+﻿<div data-ng-controller="ContentEditCtrl">
+    <form name="form_constraints" class="form-validation" novalidate data-ng-submit="submitForm()">
+        <input type="text" style="float: left; width: 100%; padding-left: 50px;"
+               class="form-control"
+               required
+               placeholder="file name and path"
+               ng-pattern="/\.[0-9a-z]+$/i"
+               data-ng-model="content.path">
+        <span></span>
+        <button type="submit" style="position: absolute; bottom: 0;right: 0"
+                class="btn btn-success"
+                data-ng-disabled="!canSubmit()">
+            Save
+        </button>
+        <div id="editor" ui-ace="{ onLoad : aceLoaded }">
+        </div>
+    </form>
+</div>

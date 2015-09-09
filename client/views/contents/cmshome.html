@@ -1,0 +1,78 @@
+﻿<div class="page page-general" data-ng-controller="ContentCmsHomeCtrl">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel panel-box">
+                <div class="panel-top bg-success">
+                    <div class="text-left">
+                        <h1>Content Management</h1>
+                    </div>
+                    <div class="divider divider-xl"></div>
+                    <div class="divider divider-lg"></div>
+                </div>
+                <div class="panel-icon bg-success">
+                    <i class="fa fa-file-text text-huge"></i>
+                </div>
+                <div class="panel-bottom bg-reverse">
+                    <ul class="list-justified text-center">
+                        <li>
+                            <a class="btn" role="button" ng-click="new()">
+                                <p class="size-h2 color-info"><i class="fa fa-plus-circle"></i></p>
+                                <p class="text-muted">New Content</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn" role="button" ng-click="list()">
+                                <p class="size-h2 color-warning"><i class="fa fa-list"></i></p>
+                                <p class="text-muted">Show All</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn" role="button" ng-click="audit()">
+                                <p class="size-h2 color-danger"><i class="fa fa-history"></i></p>
+                                <p class="text-muted">Change Log</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <section class="panel panel-box" ng-click="newLayout()">
+                <div class="panel-top btn-warning btn">
+                    <i class="fa fa-cubes text-large"></i>
+                </div>
+                <div class="panel-bottom bg-reverse btn">
+                    <p class="size-h1">New Layout</p>
+                    <p class="text-muted">Create a layout for presenting your content</p>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <section class="panel panel-box" ng-click="types()">
+                <div class="panel-top btn-info btn">
+                    <i class="fa fa-cube text-large"></i>
+                </div>
+                <div class="panel-bottom bg-reverse btn">
+                    <p class="size-h1">Define Content Types</p>
+                    <p class="text-muted">Define the structure of your content</p>
+                </div>
+            </section>
+        </div>
+        <div class="col-sm-6">
+            <section class="panel panel-box" ng-click="workflows()">
+                <div class="panel-top btn-info btn">
+                    <i class="fa fa-gears text-large"></i>
+                </div>
+                <div class="panel-bottom bg-reverse btn">
+                    <p class="size-h1">Approval Workflow</p>
+                    <p class="text-muted">Approval flow and notifications</p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

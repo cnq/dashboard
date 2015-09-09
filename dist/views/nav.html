@@ -1,0 +1,24 @@
+
+<div id="nav-wrapper">
+    <ul id="nav"
+        data-ng-controller="NavCtrl"
+        data-slim-scroll
+        data-collapse-nav
+        data-highlight-active>
+        <li><a ng-click="home()" href="#/home"> <i class="fa fa-dashboard"></i><span data-i18n="Dashboard"></span> </a></li>
+        <li>
+            <a ng-click="applications()" href="#/applications"><i class="fa fa-magic"></i><span data-i18n="Applications"></span></a>
+        </li>
+        <li>
+            <a ng-click="contents()" href="#/contents"><i class="fa fa-file-o"></i><span data-i18n="Assets"></span></a>
+        </li>
+        <li>
+            <a ng-click="cms()" href="#/cms"><i class="fa fa-file-text-o"></i><span data-i18n="Content (CMS)"></span></a>
+        </li>
+        <li>
+            <a ng-click="users()" href="#/users"><i class="fa fa-group"></i><span data-i18n="Users"></span></a>
+        </li>
+    </ul>
+    <div data-ng-include=" 'views/assets/assettree.html' "></div>
+
+</div>

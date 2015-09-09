@@ -1,0 +1,43 @@
+
+<div class="page page-table" data-ng-controller="RouteListCtrl">
+    <section class="panel panel-default table-dynamic">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Routes</strong></div>
+        <table class="table table-bordered table-striped table-responsive">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="th">
+                            Request Pattern
+                        </div>
+                    </th>
+                    <th>
+                        <div class="th">
+                            Pass To
+                        </div>
+                    </th>
+                    <th>
+                        <div class="th">
+                            Order
+                        </div>
+                    </th>
+                    <th>
+                        <div class="th">
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="route in filteredItems">
+                    <td>{{route.requestPattern}}</td>
+                    <td>{{route.passTo}}</td>
+                    <td>{{route.routeOrder}}</td>
+                    <td>
+                        <a href="#/applications/{{application.id}}/routes/{{route.id}}/edit">Edit</a> |
+                        <a href ng-click="deleteRoute(route)">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <a class="btn btn-primary" href="#/applications/{{application.id}}/routes/new"><span class="glyphicon glyphicon-plus-sign"></span> New Route</a>
+</div>
