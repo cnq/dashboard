@@ -1,0 +1,2 @@
+# dashboard
+The management dashboard
