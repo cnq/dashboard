@@ -67,7 +67,7 @@
       },
       applicationUrl: function(app) {
         if (app.name) {
-          return 'http://' + this.applicationSlug(app) + '.account.cnq.io';
+          return 'http://' + this.applicationSlug(app);
         }
         return '';
       },

@@ -1,8 +1,10 @@
 (function() {
   'use strict';
-  angular.module('app', ['ngRoute', 'ngAnimate', 'ngResource', 'ui.bootstrap', 'easypiechart', 'mgo-angular-wizard', 'textAngular', 'ui.tree', 'ngTagsInput', 'restangular', 'rt.encodeuri', 'ui.ace', 'ng-context-menu', 'xeditable', 'app.ui.ctrls', 'app.ui.directives', 'app.ui.services', 'app.controllers', 'app.services', 'app.directives', 'app.form.validation', 'app.ui.form.ctrls', 'app.ui.form.directives', 'app.tables', 'app.task', 'app.localization', 'app.chart.ctrls', 'app.chart.directives', 'app.page.ctrls', 'app.applications.ctrls', 'app.applications.services', 'app.endpoints.ctrls', 'app.endpoints.services', 'app.content.ctrls', 'app.content.services', 'app.directory.ctrls', 'app.directory.services', 'app.users.ctrls', 'app.users.services', 'angularFileUpload', 'emguo.poller']).config([
+  angular.module('app', ['ngRoute', 'ngAnimate', 'ngResource', 'ui.bootstrap', 'easypiechart', 'mgo-angular-wizard', 'textAngular', 'ui.tree', 'ngTagsInput', 'restangular', 'rt.encodeuri', 'ui.ace', 'ng-context-menu', 'xeditable', 'app.ui.ctrls', 'app.ui.directives', 'app.ui.services', 'app.controllers', 'app.services', 'app.directives', 'app.form.validation', 'app.ui.form.ctrls', 'app.ui.form.directives', 'app.tables', 'app.task', 'app.localization', 'app.chart.ctrls', 'app.chart.directives', 'app.page.ctrls', 'app.applications.ctrls', 'app.applications.services', 'app.endpoints.ctrls', 'app.endpoints.services', 'app.content.ctrls', 'app.content.services', 'app.users.ctrls', 'app.users.services', 'angularFileUpload', 'emguo.poller']).config([
     '$routeProvider', '$httpProvider', 'RestangularProvider', 'pollerConfig', function($routeProvider, $httpProvider, RestangularProvider, pollerConfig) {
-      $.get("/api/auth/authenticateduser", function(user) {
+      var baseUrl;
+      baseUrl = "http://localhost:8889/";
+      $.get(baseUrl + "auth/authenticateduser", function(user) {
         if (!user.isAuthenticated) {
           return window.location.href = '/login.html';
         }
@@ -15,7 +17,7 @@
         "positionClass": "toast-bottom-right",
         "timeOut": "3000"
       };
-      RestangularProvider.setBaseUrl('/api/');
+      RestangularProvider.setBaseUrl(baseUrl);
       RestangularProvider.setErrorInterceptor(function(response) {
         var msg;
         if (response.status === 401) {
@@ -171,6 +173,11 @@
     }
   ]).run([
     '$rootScope', 'Restangular', function($rootScope, Restangular) {
+      $rootScope.brand = {
+        name: 'cnq.io',
+        title: 'CNQ dashboard',
+        url: 'http://www.cnq.io/'
+      };
       Restangular.addRequestInterceptor(function(element) {
         $rootScope.loading = true;
         return element;

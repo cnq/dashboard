@@ -1,17 +1,20 @@
 (function() {
   'use strict';
   angular.module('app.controllers', []).controller('AppCtrl', [
-    '$scope', '$location', '$http', 'currentUserService', function($scope, $location, $http, currentUserService) {
+    '$scope', '$rootScope', '$location', '$http', 'currentUserService', function($scope, $rootScope, $location, $http, currentUserService) {
       $scope.isSpecificPage = function() {
         var path;
         path = $location.path();
         return _.contains(['/404', '/pages/500', '/pages/login', '/pages/forgot', '/pages/lock-screen'], path);
       };
-      $scope.main = {
-        brand: 'cnq.io'
-      };
+      $scope.brand = $rootScope.brand.name;
       currentUserService.user().then(function(user) {
-        return $scope.currentUser = user;
+        $scope.currentUser = user;
+        if (user.isAuthenticated) {
+          return $("#mask").fadeOut();
+        } else {
+          return window.location.href = "/login.html";
+        }
       });
       $scope.signout = function() {
         $("#mask").fadeIn();
@@ -23,13 +26,6 @@
           }
         });
       };
-      $http.get("/api/auth/authenticateduser").success(function(user, status, headers, config) {
-        if (user.isAuthenticated) {
-          return $("#mask").fadeOut();
-        } else {
-          return window.location.href = "/login.html";
-        }
-      });
     }
   ]).controller('NavCtrl', [
     '$scope', 'taskStorage', 'filterFilter', function($scope, taskStorage, filterFilter) {

@@ -48,7 +48,7 @@ angular.module('app.applications.services', ['restangular'])
 
         applicationUrl: (app) ->
             if(app.name)
-                return 'http://' + this.applicationSlug(app) + '.account.cnq.io' #TODO: account name will be provided by some global service
+                return 'http://' + this.applicationSlug(app)  #TODO: account name will be provided by some global service
             return ''
 
         applicationSlug : (app) ->
