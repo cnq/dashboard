@@ -25,7 +25,6 @@
     "moment": "~2.5.1",
     "gauge.js": "~1.0.0",
     "flot": "~0.8.2",
-    "jquery-spinner": "~0.1.5",
     "jquery-steps": "~1.0.7",
     "angular-wizard": "~0.3.0",
     "weather-icons": "~0.0.1",
@@ -41,7 +40,9 @@
     "ladda": "~0.9.4",
     "ng-context-menu": "~0.1.6",
     "angular-xeditable": "~0.1.8",
-    "angular-poller": "~0.3.0"
+    "angular-poller": "~0.3.0",
+    "html5shiv": "~3.7.3",
+    "respond": "~1.4.2",
   },
   "devDependencies": {
     "responsive-tables": "*",

@@ -51,7 +51,7 @@ angular.module('app', [
     '$routeProvider','$httpProvider' ,'RestangularProvider', 'pollerConfig'
     ($routeProvider, $httpProvider, RestangularProvider, pollerConfig) ->
 
-        baseUrl = "http://localhost:8889/" # in non-testing case, this should be '/api/'
+        baseUrl = "/api/" # in non-testing case, this should be '/api/'
 
         $.get( baseUrl + "auth/authenticateduser", ( user ) ->
             if(!user.isAuthenticated)

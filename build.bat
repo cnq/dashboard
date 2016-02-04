@@ -1,3 +1,3 @@
 cd D:\Data\Projects\dashboard\square
-call grunt buildLessNoCompress --force
+call grunt buildDev --force
 pause
