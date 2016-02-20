@@ -172,14 +172,7 @@
     "endpointsService"
     ($scope, $rootScope, logger, $routeParams, $location, applicationsService, endpointsService) ->
       $scope.application = applicationsService.newApplication()
-      endpointsService.getEndpoints().then (endpoints) ->
-        newEndpoint = undefined
-        $scope.endpoints = endpoints
-        newEndpoint = endpointsService.newEndpoint()
-        newEndpoint.name = "Create New Endpoint"
-        $scope.endpoints.push newEndpoint
-        $scope.application.ipAddress = $scope.endpoints[0].ipAddress
-
+      
       $scope.original = angular.copy($scope.application)
       $scope.canSubmit = ->
         $scope.form_constraints.$valid and not angular.equals($scope.application, $scope.original)

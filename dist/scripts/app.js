@@ -840,15 +840,6 @@
     ]).controller("ApplicationNewCtrl", [
       "$scope", "$rootScope", "logger", "$routeParams", "$location", "applicationsService", "endpointsService", function($scope, $rootScope, logger, $routeParams, $location, applicationsService, endpointsService) {
         $scope.application = applicationsService.newApplication();
-        endpointsService.getEndpoints().then(function(endpoints) {
-          var newEndpoint;
-          newEndpoint = void 0;
-          $scope.endpoints = endpoints;
-          newEndpoint = endpointsService.newEndpoint();
-          newEndpoint.name = "Create New Endpoint";
-          $scope.endpoints.push(newEndpoint);
-          return $scope.application.ipAddress = $scope.endpoints[0].ipAddress;
-        });
         $scope.original = angular.copy($scope.application);
         $scope.canSubmit = function() {
           return $scope.form_constraints.$valid && !angular.equals($scope.application, $scope.original);

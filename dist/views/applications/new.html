@@ -14,14 +14,6 @@
                                    data-ng-model="application.name">
                             <span></span>
                         </div>
-                        <div class="form-group">
-                            <label for="">Public Endpoint On</label>
-                            <select class="form-control" data-ng-model="application.ipAddress">
-                                <option ng-repeat="item in endpoints" value="{{item.ipAddress}}">{{item.name}}</option>
-                            </select>
-
-                            <span></span>
-                        </div>
                         <button type="submit"
                                 class="btn btn-success ladda-button"
                                 data-color="blue"
