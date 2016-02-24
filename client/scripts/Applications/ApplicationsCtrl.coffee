@@ -13,26 +13,9 @@
       poller.reset()
 
       init = ->
-        $scope.search()
+        $scope.filteredItems = $filter("filter")($scope.applications, $scope.searchKeywords)
+        $scope.filteredItems = $filter("orderBy")($scope.applications, $scope.row)
         $scope.select $scope.currentPage
-        return
-
-
-      rebuild = (stalearray, fresharray) ->
-        $.each fresharray, (index, freshitem) ->
-          found = false
-          $.each stalearray, (index, staleitem) ->
-            if freshitem.name is staleitem.name
-              found = true
-              staleitem.id = freshitem.id
-              staleitem.name = freshitem.name
-              staleitem.ipAddress = freshitem.ipAddress
-            return
-
-          stalearray.push freshitem  unless found
-          return
-
-        init()
         return
 
       applicationsService.getApplications().then (applications) ->
@@ -70,12 +53,11 @@
           $scope.onOrderChange()
 
         $scope.numPerPageOpt = [
-          3
-          5
-          10
           20
+          50
+          100
         ]
-        $scope.numPerPage = $scope.numPerPageOpt[2]
+        $scope.numPerPage = $scope.numPerPageOpt[1]
         $scope.currentPage = 1
         $scope.currentPageItems = []
         $scope.deleteApplication = (app) ->
@@ -83,13 +65,12 @@
             $scope.applications = _.without($scope.applications, app)
             init()
 
-
-        rebuild $scope.applications, applications
         poller.get(Restangular.all("apps"),
           action: "getList"
           delay: 3000
         ).promise.then null, null, (applications) ->
-          rebuild $scope.applications, applications
+          $scope.applications = applications
+          init()
           return
 
         return

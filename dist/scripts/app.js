@@ -687,32 +687,15 @@
     "use strict";
     angular.module("app.applications.ctrls", []).controller("ApplicationListCtrl", [
       "$scope", "$rootScope", "logger", "$filter", "applicationsService", "poller", "Restangular", function($scope, $rootScope, logger, $filter, applicationsService, poller, Restangular) {
-        var init, rebuild;
+        var init;
         if (!$scope.applications) {
           $scope.applications = [];
         }
         poller.reset();
         init = function() {
-          $scope.search();
+          $scope.filteredItems = $filter("filter")($scope.applications, $scope.searchKeywords);
+          $scope.filteredItems = $filter("orderBy")($scope.applications, $scope.row);
           $scope.select($scope.currentPage);
-        };
-        rebuild = function(stalearray, fresharray) {
-          $.each(fresharray, function(index, freshitem) {
-            var found;
-            found = false;
-            $.each(stalearray, function(index, staleitem) {
-              if (freshitem.name === staleitem.name) {
-                found = true;
-                staleitem.id = freshitem.id;
-                staleitem.name = freshitem.name;
-                staleitem.ipAddress = freshitem.ipAddress;
-              }
-            });
-            if (!found) {
-              stalearray.push(freshitem);
-            }
-          });
-          init();
         };
         return applicationsService.getApplications().then(function(applications) {
           $scope.searchKeywords = "";
@@ -751,8 +734,8 @@
             $scope.filteredItems = $filter("orderBy")($scope.applications, rowName);
             return $scope.onOrderChange();
           };
-          $scope.numPerPageOpt = [3, 5, 10, 20];
-          $scope.numPerPage = $scope.numPerPageOpt[2];
+          $scope.numPerPageOpt = [20, 50, 100];
+          $scope.numPerPage = $scope.numPerPageOpt[1];
           $scope.currentPage = 1;
           $scope.currentPageItems = [];
           $scope.deleteApplication = function(app) {
@@ -761,12 +744,12 @@
               return init();
             });
           };
-          rebuild($scope.applications, applications);
           poller.get(Restangular.all("apps"), {
             action: "getList",
             delay: 3000
           }).promise.then(null, null, function(applications) {
-            rebuild($scope.applications, applications);
+            $scope.applications = applications;
+            init();
           });
         });
       }
