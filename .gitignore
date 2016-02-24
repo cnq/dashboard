@@ -6,3 +6,5 @@ client/bower_components
 .DS_Store
 npm-debug.log
 /preview/preview.zip
+*.suo
+/client/.vs/config/applicationhost.config
