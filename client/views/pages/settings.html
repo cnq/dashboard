@@ -59,18 +59,11 @@
                                   data-ng-class="{active: row == '-ipAddress'}"></span>
                         </div>
                     </th>
-                    <th>
-                        <div class="th">
-                        </div>
-                    </th>
                 </tr>
             </thead>
             <tbody>
                 <tr data-ng-repeat="endpoint in currentPageItems">
                     <td>{{endpoint.ipAddress}}</td>
-                    <td>
-                        <a href ng-click="deleteEndpoint(endpoint)">Delete</a>
-                    </td>
                 </tr>
             </tbody>
         </table>
