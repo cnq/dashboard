@@ -19,16 +19,10 @@
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="/styles/login.css">
 
-
-
     <!--[if IE]>
-    <script src="/scripts/html5shiv.js"></script>
-    <script src="/scripts/respond.js"></script>
+    <script src="/scripts/html5shiv.min.js"></script>
+    <script src="/scripts/respond.min.js"></script>
     <![endif]-->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/ladda/dist/spin.min.js"></script>
-    <script src="bower_components/ladda/dist/ladda.min.js"></script>
-
 
 </head>
 <body id="section-login">
@@ -79,7 +73,15 @@
         </div><!-- end container -->
     </section>
     <!-- Footer Scripts -->
+    
+    <!-- build:js scripts/vendor-light.js -->
+    <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="bower_components/ladda/dist/spin.min.js"></script>
+    <script src="bower_components/ladda/dist/ladda.min.js"></script>
+    <!-- endbuild -->
+    <!-- build:js({.tmp,client}) scripts/login.js -->
     <script src="/scripts/login.js"></script>
+    <!-- endbuild -->
 
 
 </body>

@@ -15,7 +15,7 @@
                             <span></span>
                         </div>
                         <div class="form-group">
-                            <label for="">Public Endpoint On</label>
+                            <label for="">Public Ip Address</label>
                             <input type="text"
                                    class="form-control"
                                    data-ng-model="application.ipAddress"
@@ -42,13 +42,7 @@
                              ng-hide="!application.domain || application.domain.length == 0">
                             <input type="checkbox"
                                    data-ng-model="application.suppressDefaultEndpoint">
-                            <label for="">Disable cnq endpoint? </label>
-                            <span></span>
-                        </div>
-                        <div class="form-group">
-                            <input type="checkbox"
-                                   data-ng-model="application.transportSecurity">
-                            <label for="">Enable SSL? </label>
+                            <label for="">Disable default endpoint? </label>
                             <span></span>
                         </div>
                         <div class="form-group">
@@ -57,28 +51,6 @@
                                    class="form-control"
                                    data-ng-model="application.url"
                                    disabled>
-                            <span></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Authentication Redirect Path </label>
-                            <input type="text"
-                                   class="form-control"
-                                   placeholder="ex. /login.html"
-                                   data-ng-model="application.authenticationRedirect">
-                            <span></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Reset Password Path </label>
-                            <input type="text"
-                                   class="form-control"
-                                   data-ng-model="application.resetPassword">
-                            <span></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Account Verification Path</label>
-                            <input type="text"
-                                   class="form-control"
-                                   data-ng-model="application.accountVerification">
                             <span></span>
                         </div>
                         <button type="submit"

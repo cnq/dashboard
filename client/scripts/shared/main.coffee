@@ -4,8 +4,8 @@ angular.module('app.controllers', [])
 
 # overall control
 .controller('AppCtrl', [
-    '$scope', '$location', '$http', 'currentUserService'
-    ($scope, $location, $http, currentUserService) ->
+    '$scope', '$rootScope', '$location', '$http', 'currentUserService'
+    ($scope, $rootScope, $location, $http, currentUserService) ->
         $scope.isSpecificPage = ->
             path = $location.path()
             return _.contains( [
@@ -16,11 +16,14 @@ angular.module('app.controllers', [])
                 '/pages/lock-screen'
             ], path )
         
-        $scope.main =
-            brand: 'cnq.io'
+        $scope.brand = $rootScope.brand.name
         
         currentUserService.user().then((user) ->
             $scope.currentUser = user
+            if user.isAuthenticated
+                $("#mask").fadeOut()
+              else
+                window.location.href = "/login.html"
         )
         
         $scope.signout = ->
@@ -33,12 +36,7 @@ angular.module('app.controllers', [])
         
           return
         
-        $http.get("/api/auth/authenticateduser").success (user, status, headers, config) ->
-          if user.isAuthenticated
-            $("#mask").fadeOut()
-          else
-            window.location.href = "/login.html"
-        
+
         
         return
 ])

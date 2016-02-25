@@ -83,7 +83,7 @@ module.exports = (grunt) ->
         open:
             server:
                 url: "http://localhost:<%= connect.options.port %>"
-
+        
         clean:
             dist:
                 files: [
@@ -206,7 +206,7 @@ module.exports = (grunt) ->
                 ]
 
         useminPrepare:
-            html: "<%= yeoman.app %>/index.html"
+            html: ["<%= yeoman.app %>/index.html", "<%= yeoman.app %>/login.html"]
             options:
                 dest: "<%= yeoman.dist %>"
                 flow:
@@ -271,6 +271,16 @@ module.exports = (grunt) ->
                     ]
                 ,
                     expand: true
+                    cwd: "<%= yeoman.app %>/bower_components/html5shiv/dist/"
+                    src: "html5shiv.min.js"
+                    dest: "<%= yeoman.dist %>/scripts"
+                ,
+                    expand: true
+                    cwd: "<%= yeoman.app %>/bower_components/respond/dest/"
+                    src: "respond.min.js"
+                    dest: "<%= yeoman.dist %>/scripts"
+                ,
+                    expand: true
                     cwd: ".tmp"
                     dest: "<%= yeoman.dist %>"
                     src: ["styles/**", "assets/**"]
@@ -324,8 +334,8 @@ module.exports = (grunt) ->
                         "bower_components/jquery-steps/build/jquery.steps.min.js"
                         "bower_components/jquery.easy-pie-chart/dist/angular.easypiechart.min.js"
                         "bower_components/jquery.slimscroll/jquery.slimscroll.min.js"
-                        "bower_components/jquery/dist/jquery.min.js"
-                        "bower_components/jquery/dist/jquery.min.map"
+                        "bower_components/jquery/jquery.min.js"
+                        "bower_components/jquery/jquery.min.map"
                         "bower_components/morris.js/morris.js"
                         "bower_components/ng-tags-input/ng-tags-input.min.js"
                         "bower_components/ngmap/dist/ng-map.min.js"
@@ -407,8 +417,7 @@ module.exports = (grunt) ->
         return grunt.task.run(["buildLess", "open", "connect:dist:keepalive"])  if target is "dist"
         grunt.task.run ["clean:server", "concurrent:lessServer", "connect:nolivereload", "open", "watch"]
 
-    grunt.registerTask "build", ["clean:dist", "useminPrepare", "concurrent:dist", "copy:dist", "concat", "uglify", "usemin"]
-    grunt.registerTask "buildLess", ["clean:dist", "useminPrepare", "concurrent:lessDist", "copy:dist", "concat", "uglify", "usemin"]
-    grunt.registerTask "buildLessNoCompress", ["clean:dist", "concurrent:lessDistTest", "copy:distTest"]
+    grunt.registerTask "build", ["clean:dist", "useminPrepare", "concurrent:lessDist", "copy:dist", "concat", "uglify", "usemin"]
+    grunt.registerTask "buildDev", ["clean:dist", "useminPrepare", "concurrent:lessDist", "copy:dist", "concat", "usemin"]
 
     grunt.registerTask "default", ["server"]

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
@@ -19,16 +19,10 @@
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="/styles/login.css">
 
-
-
     <!--[if IE]>
-    <script src="/scripts/html5shiv.js"></script>
-    <script src="/scripts/respond.js"></script>
+    <script src="/scripts/html5shiv.min.js"></script>
+    <script src="/scripts/respond.min.js"></script>
     <![endif]-->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/ladda/dist/spin.min.js"></script>
-    <script src="bower_components/ladda/dist/ladda.min.js"></script>
-
 
 </head>
 <body id="section-login">
@@ -58,11 +52,11 @@
                                 <div class="form-group">
                                     <div class="col-md-7">
                                         <h3>Sign In</h3>
-                                        <div class="left-inner-addon ">
+                                        <div class="left-inner-addon">
                                             <i class="fa fa-user"></i>
                                             <input type="text" class="form-control" id="username" name="username" placeholder="Username">
                                         </div>
-                                        <div class="left-inner-addon ">
+                                        <div class="left-inner-addon">
                                             <i class="fa fa-lock"></i>
                                             <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                                         </div>
@@ -79,7 +73,9 @@
         </div><!-- end container -->
     </section>
     <!-- Footer Scripts -->
-    <script src="/scripts/login.js"></script>
+    
+    <script src="scripts/vendor-light.js"></script>
+    <script src="scripts/login.js"></script>
 
 
 </body>

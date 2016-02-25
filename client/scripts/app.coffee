@@ -41,8 +41,6 @@ angular.module('app', [
     'app.endpoints.services'
     'app.content.ctrls'
     'app.content.services'
-    'app.directory.ctrls'
-    'app.directory.services'
     'app.users.ctrls'
     'app.users.services'
     'angularFileUpload'
@@ -53,7 +51,9 @@ angular.module('app', [
     '$routeProvider','$httpProvider' ,'RestangularProvider', 'pollerConfig'
     ($routeProvider, $httpProvider, RestangularProvider, pollerConfig) ->
 
-        $.get( "/api/auth/authenticateduser", ( user ) ->
+        baseUrl = "/api/" # in non-testing case, this should be '/api/'
+
+        $.get( baseUrl + "auth/authenticateduser", ( user ) ->
             if(!user.isAuthenticated)
                 window.location.href='/login.html'
         )
@@ -68,7 +68,7 @@ angular.module('app', [
             "positionClass": "toast-bottom-right"
             "timeOut": "3000"
 
-        RestangularProvider.setBaseUrl('/api/');
+        RestangularProvider.setBaseUrl(baseUrl);
         #RestangularProvider.setDefaultHttpFields({cache: true});
         RestangularProvider.setErrorInterceptor((response) ->
             if (response.status == 401)
@@ -312,6 +312,13 @@ angular.module('app', [
 .run([
     '$rootScope', 'Restangular'
     ($rootScope, Restangular) ->
+
+
+        $rootScope.brand =
+            name: 'cnq.io'
+            title: 'CNQ dashboard'
+            url: 'http://www.cnq.io/'
+
 
         Restangular.addRequestInterceptor((element) -> 
             $rootScope.loading = true;
